@@ -6,30 +6,6 @@ from app.astral_objects.polyanet import Polyanet
 from app.astral_objects.soloon import Soloon
 from app.astral_objects.cometh import Cometh
 
-# # Configure logging
-# logging.basicConfig(level=logging.INFO)
-# logger = logging.getLogger(__name__)
-
-# def main():
-#     try:
-#         # Initialize the ChallengeGoal class
-#         challenge = ChallengeGoal()
-#         print()
-
-#         # Retrieve the goal map
-#         logger.info("Retrieving the goal map...")
-#         challenge.get_goal_map()
-
-#         # Solve the challenge
-#         logger.info("Solving Challenge 1...")
-#         challenge.solve_challengue_1()
-
-#         logger.info("Challenge 1 solved successfully!")
-#     except Exception as e:
-#         logger.error(f"An error occurred: {e}")
-
-# if __name__ == "__main__":
-#     main()
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -37,7 +13,17 @@ logger = logging.getLogger(__name__)
 
 
 def get_supported_challenges():
-    """Dynamically detect all solve_challengue_X methods in ChallengeGoal."""
+    """
+    Dynamically detect all available `solve_challengue_X` methods in the ChallengeGoal class being X
+    the challenge's number.
+
+    The method inspects ChallengeGoal to find all methods that start with
+    `solve_challengue_` followed by a number.
+
+    Returns:
+        dict: A dictionary where keys are integers representing challenge numbers
+        and values are the corresponding method names as strings.
+    """
     methods = inspect.getmembers(ChallengeGoal, predicate=inspect.isfunction)
     challenge_methods = {
         int(name.split("_")[-1]): name
@@ -48,6 +34,18 @@ def get_supported_challenges():
 
 
 def main():
+    """
+    Entry point of the application.
+
+    This function:
+    1. Reads a challenge number from the command line.
+    2. Determines which challenges are supported by analyzing the
+       ChallengeGoal class.
+    3. Initializes a ChallengeGoal instance and try to solve the specified challenge.
+
+    Usage:
+        python main.py <challenge_number>
+    """
     # Ensure the program receives a challenge number as input
     if len(sys.argv) != 2:
         print("Usage: python main.py <challenge_number>")
@@ -61,7 +59,6 @@ def main():
         print("Challenge number must be an integer (e.g., 1 or 2).")
         sys.exit(1)
 
-    # Dynamically detect supported challenges
     supported_challenges = get_supported_challenges()
 
     if challenge_number not in supported_challenges:
@@ -69,7 +66,6 @@ def main():
         print(f"Supported challenges are: {sorted(supported_challenges.keys())}")
         sys.exit(1)
 
-    # Initialize the ChallengeGoal class
     challenge = ChallengeGoal()
 
     # Call the appropriate method based on the challenge number
