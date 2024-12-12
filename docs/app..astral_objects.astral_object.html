@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module app.astral_objects.astral_object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="app.html"><font color="#ffffff">app</font></a>.<a href="app.astral_objects.html"><font color="#ffffff">astral_objects</font></a>.astral_object</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/margimenez/Documents/challenge_crossmint/app/astral_objects/astral_object.py">/Users/margimenez/Documents/challenge_crossmint/app/astral_objects/astral_object.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="abc.html#ABC">abc.ABC</a>(<a href="builtins.html#object">builtins.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="app.astral_objects.astral_object.html#AstralObject">AstralObject</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="AstralObject">class <strong>AstralObject</strong></a>(<a href="abc.html#ABC">abc.ABC</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#AstralObject">AstralObject</a>(candidate_id)<br>
+&nbsp;<br>
+Base&nbsp;class&nbsp;representing&nbsp;a&nbsp;generic&nbsp;astral&nbsp;object.<br>
+&nbsp;<br>
+It&nbsp;serves&nbsp;a&nbsp;template&nbsp;for&nbsp;astral&nbsp;objects,&nbsp;providing<br>
+abstract&nbsp;methods&nbsp;for&nbsp;posting&nbsp;and&nbsp;deleting&nbsp;objects.&nbsp;It&nbsp;also&nbsp;is<br>
+provides&nbsp;a&nbsp;function&nbsp;to&nbsp;assure&nbsp;the&nbsp;correctness&nbsp;in&nbsp;form&nbsp;for<br>
+the&nbsp;provided&nbsp;data&nbsp;for&nbsp;those&nbsp;methods.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="app.astral_objects.astral_object.html#AstralObject">AstralObject</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="AstralObject-__init__"><strong>__init__</strong></a>(self, candidate_id)</dt><dd><tt>Initialize&nbsp;an&nbsp;<a href="#AstralObject">AstralObject</a>&nbsp;instance.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;candidate_id&nbsp;(str):&nbsp;The&nbsp;unique&nbsp;identifier&nbsp;for&nbsp;the&nbsp;crossmint's&nbsp;candidate.</tt></dd></dl>
+
+<dl><dt><a name="AstralObject-check_tuples"><strong>check_tuples</strong></a>(self, item, len_tuple, in_list=None)</dt><dd><tt>Validate&nbsp;a&nbsp;tuple&nbsp;for&nbsp;proper&nbsp;length&nbsp;and&nbsp;optional&nbsp;values.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;item&nbsp;(tuple):&nbsp;The&nbsp;tuple&nbsp;to&nbsp;validate.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;len_tuple&nbsp;(int):&nbsp;The&nbsp;expected&nbsp;length&nbsp;of&nbsp;the&nbsp;tuple.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;in_list&nbsp;(list,&nbsp;optional):&nbsp;A&nbsp;list&nbsp;of&nbsp;valid&nbsp;values&nbsp;for&nbsp;the&nbsp;last&nbsp;element<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;tuple.&nbsp;If&nbsp;specified,&nbsp;the&nbsp;last&nbsp;element&nbsp;of&nbsp;the&nbsp;tuple&nbsp;must&nbsp;be&nbsp;in&nbsp;this&nbsp;list.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;AssertionError:&nbsp;If&nbsp;the&nbsp;item&nbsp;is&nbsp;not&nbsp;a&nbsp;tuple,&nbsp;has&nbsp;the&nbsp;wrong&nbsp;length,&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;its&nbsp;last&nbsp;element&nbsp;is&nbsp;not&nbsp;in&nbsp;the&nbsp;provided&nbsp;list&nbsp;of&nbsp;valid&nbsp;values.</tt></dd></dl>
+
+<dl><dt><a name="AstralObject-delete"><strong>delete</strong></a>(self, rows_columns_tuples)</dt><dd><tt>Delete&nbsp;the&nbsp;object&nbsp;at&nbsp;specified&nbsp;position.<br>
+&nbsp;<br>
+Abstract&nbsp;method&nbsp;to&nbsp;be&nbsp;implemented&nbsp;by&nbsp;subclasses.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rows_columns_tuple&nbsp;(tuple):&nbsp;A&nbsp;tuple,&nbsp;defining&nbsp;the&nbsp;position&nbsp;(row,&nbsp;column)&nbsp;and&nbsp;additional&nbsp;parameters&nbsp;for&nbsp;posting&nbsp;the&nbsp;object.<br>
+&nbsp;<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NotImplementedError:&nbsp;If&nbsp;the&nbsp;method&nbsp;is&nbsp;not&nbsp;implemented&nbsp;in&nbsp;a&nbsp;subclass.</tt></dd></dl>
+
+<dl><dt><a name="AstralObject-post"><strong>post</strong></a>(self, rows_columns_tuple)</dt><dd><tt>Post&nbsp;the&nbsp;atral&nbsp;object&nbsp;at&nbsp;specified&nbsp;position&nbsp;with&nbsp;given&nbsp;attributes&nbsp;(if&nbsp;given).<br>
+&nbsp;<br>
+Abstract&nbsp;method&nbsp;to&nbsp;be&nbsp;implemented&nbsp;by&nbsp;subclasses.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rows_columns_tuple&nbsp;(tuple):&nbsp;A&nbsp;tuple,&nbsp;defining&nbsp;the&nbsp;position&nbsp;(row,&nbsp;column)&nbsp;and&nbsp;additional&nbsp;parameters&nbsp;for&nbsp;posting&nbsp;the&nbsp;object.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NotImplementedError:&nbsp;If&nbsp;the&nbsp;method&nbsp;is&nbsp;not&nbsp;implemented&nbsp;in&nbsp;a&nbsp;subclass.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset({'delete', 'post'})</dl>
+
+</td></tr></table></td></tr></table>
+</body></html>
